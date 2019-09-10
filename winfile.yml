@@ -7,6 +7,9 @@
        state: touch
    - name: data dog installation 
      win_command: $image_url = "https://s3.amazonaws.com/ddagent-windows-stable/ddagent-cli-latest.msi"
+   - name: data dog installation1
      win_command: $destin = "C:\ddagent-cli-latest.msi"
+   - name: data dog installation2
      win_command: (New-Object System.Net.WebClient).DownloadFile($image_url, $destin)
+   - name: data dog installation3
      win_command: msiexec /i C:\ddagent-cli-latest.msi /l*v C:\installation_log.txt /quiet APIKEY="ad4aed66f506d7259f4691d1c2d86589"
