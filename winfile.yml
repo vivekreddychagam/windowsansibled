@@ -5,11 +5,8 @@
      win_file:
        path: C:\\foo.conf
        state: touch
-   - name: data dog installation 
-     win_shell: powershell.exe $image_url = "https://s3.amazonaws.com/ddagent-windows-stable/ddagent-cli-latest.msi"
-   - name: data dog installation1
-     win_shell: powershell.exe $destin = "C:\ddagent-cli-latest.msi"
-   - name: data dog installation2
-     win_shell: powershell.exe (New-Object System.Net.WebClient).DownloadFile($image_url, $destin)
-   - name: data dog installation3
-     win_shell: powershell.exe msiexec /i C:\ddagent-cli-latest.msi /l*v C:\installation_log.txt /quiet APIKEY="ad4aed66f506d7259f4691d1c2d86589"
+     win_shell: |
+      $image_url = "https://s3.amazonaws.com/ddagent-windows-stable/ddagent-cli-latest.msi"
+      $destin = "C:\Users\Administrator\ddagent-cli-latest.msi"
+      (New-Object System.Net.WebClient).DownloadFile($image_url, $destin)
+      msiexec /i C:\Users\Administrator\ddagent-cli-latest.msi /l*v C:\Users\Administrator\installation_log.txt /quiet APIKEY="ad4aed66f506d7259f4691d1c2d86589"
